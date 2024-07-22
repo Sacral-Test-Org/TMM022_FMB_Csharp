@@ -1,0 +1,57 @@
+<div class="form-container">
+  <h1>{{ SCREENNAME }}</h1>
+  <p>System Date: {{ SYSDATE | date: 'dd-MMM-yyyy' }}</p>
+  <p>Mode: {{ mode }}</p>
+
+  <form>
+    <div class="form-group">
+      <label for="unitId">Unit ID</label>
+      <input type="text" id="unitId" [(ngModel)]="unitId" (dblclick)="onUnitIdDoubleClick()" (click)="onUnitIdClick()" (blur)="onUnitIdValidate()" />
+    </div>
+    <div class="form-group">
+      <label for="unitName">Unit Name</label>
+      <input type="text" id="unitName" [(ngModel)]="unitName" />
+    </div>
+    <div class="form-group">
+      <label for="groupId">Group ID</label>
+      <input type="text" id="groupId" [(ngModel)]="groupId" (dblclick)="onGroupIdDoubleClick()" (click)="onGroupIdClick()" (blur)="onGroupIdValidate()" />
+    </div>
+    <div class="form-group">
+      <label for="groupName">Group Name</label>
+      <input type="text" id="groupName" [(ngModel)]="groupName" />
+    </div>
+    <div class="form-group">
+      <label for="lineId">Line ID</label>
+      <input type="text" id="lineId" [(ngModel)]="lineId" (dblclick)="onLineIdDoubleClick()" (click)="onLineIdClick()" (blur)="onLineIdValidate()" />
+    </div>
+    <div class="form-group">
+      <label for="lineDesc">Line Description</label>
+      <input type="text" id="lineDesc" [(ngModel)]="lineDesc" />
+    </div>
+    <div class="form-group">
+      <label for="partId">Part ID</label>
+      <input type="text" id="partId" [(ngModel)]="partId" />
+    </div>
+    <div class="form-group">
+      <label for="partNo">Part Number</label>
+      <input type="text" id="partNo" [(ngModel)]="partNo" (dblclick)="onPartNumberDoubleClick()" (click)="onPartNumberClick()" (blur)="onPartNumberValidation()" />
+    </div>
+    <div class="form-group">
+      <label for="partDesc">Part Description</label>
+      <input type="text" id="partDesc" [(ngModel)]="partDesc" (click)="handlePartDescriptionClick()" (dblclick)="handlePartDescriptionDoubleClick()" />
+    </div>
+    <div class="form-group">
+      <label for="partStatus">Part Status</label>
+      <input type="text" id="partStatus" [(ngModel)]="partStatus" />
+    </div>
+
+    <div class="form-group">
+      <button type="button" (click)="savePart()" [disabled]="!isSaveEnabled">Save</button>
+      <button type="button" (click)="clearForm()">Clear</button>
+      <button type="button" (click)="onEditButtonClick()">Edit</button>
+      <button type="button" (click)="exitApplication()">Exit</button>
+    </div>
+  </form>
+
+  <validation-messages></validation-messages>
+</div>
